@@ -1,0 +1,32 @@
+CC = gcc
+CFLAGS = -Wall -Wextra
+
+all: merge_append project greedy genetic
+
+merge_append: merge_append.o
+	$(CC) $(CFLAGS) -o merge_append merge_append.o
+
+project: project.o
+	$(CC) $(CFLAGS) -o project project.o
+
+greedy: greedy.o
+	$(CC) $(CFLAGS) -o greedy greedy.o
+
+genetic: genetic.o
+	$(CC) $(CFLAGS) -o genetic genetic.o
+
+merge_append.o: merge_append.c
+	$(CC) $(CFLAGS) -c merge_append.c
+
+project.o: project.c
+	$(CC) $(CFLAGS) -c project.c
+
+greedy.o: greedy.c
+	$(CC) $(CFLAGS) -c greedy.c
+
+genetic.o: genetic.c
+	$(CC) $(CFLAGS) -c genetic.c
+
+clean:
+	rm -f merge_append project greedy genetic *.o
+
